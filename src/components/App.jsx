@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import Statistics from './Statistics/Statistics';
 import FeedbackOptions from './FeedbackOptions/FeedbackOptions';
 import Section from 'components/Section/Section';
@@ -9,21 +9,20 @@ const App = () => {
 
   const clickBtn = e => {
     const name = e.target.name;
-    setFeedback(prevFeedback => ({ ...prevFeedback, [name]: prevFeedback[name] + 1 }));
+    setFeedback(prevFeedback => ({
+      ...prevFeedback,
+      [name]: prevFeedback[name] + 1,
+    }));
   };
 
-  const countTotalFeedback = () => {
+  const total = useMemo(() => {
     const { good, neutral, bad } = feedback;
     return good + neutral + bad;
-  };
+  }, [feedback]);
 
-  const countPositiveFeedbackPercentage = () => {
-    const total = countTotalFeedback();
+  const positivePercentage = useMemo(() => {
     return total ? Math.floor((feedback.good / total) * 100) : 0;
-  };
-
-  const total = countTotalFeedback();
-  const positivePercentage = countPositiveFeedbackPercentage();
+  }, [total, feedback]);
 
   return (
     <div>
