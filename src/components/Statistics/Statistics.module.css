@@ -1,0 +1,12 @@
+.statisticsContainer {
+  margin-top: 20px;
+}
+
+.statisticsItem {
+  display: flex;
+  gap: 12px;
+}
+
+.statisticsLabel {
+  font-weight: bold;
+}

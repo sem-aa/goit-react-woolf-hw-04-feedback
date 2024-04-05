@@ -1,0 +1,18 @@
+.buttonContainer {
+  display: flex;
+  gap: 24px;
+  margin-bottom: 10px;
+}
+
+.button {
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  border-radius: 24px;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
